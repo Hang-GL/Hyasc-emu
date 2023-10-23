@@ -1,0 +1,108 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>“青年大学习”</title>
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name = "format-detection" content = "telephone=no"> 
+<script type="text/javascript" src="https://ossweb-img.qq.com/images/js/jquery/jquery-1.9.1.min.js"></script>
+<script>
+    if(!window.jQuery)
+        document.write('<script type="text/javascript" src="http://cdnsite.fjg360.cn/jquery-1.9.1.min.js"><'+'/script>');
+    if (navigator.userAgent.toLowerCase().match(/huawei/i) == "huawei"){
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if (clientWidth >= 750) {
+                        docEl.style.fontSize = '100px';
+                    } else {
+                        docEl.style.fontSize = 100 * (clientWidth / 1500) + 'px';
+                    }
+                    var html = document.getElementsByTagName('html')[0]
+                    var settingFs = parseInt(100 * (clientWidth / 1500))
+                    var settedFs = settingFs
+                    var whileCount = 0
+                    while (true) {
+                      var realFs = parseInt(window.getComputedStyle(html).fontSize)
+                      var delta = realFs - settedFs
+                      if (Math.abs(delta) >= 1) {
+                        if (delta > 0) {
+                          settingFs--
+                        } else {
+                          settingFs++
+                        }
+                        html.setAttribute('style', 'font-size:' + settingFs + 'px!important')
+                      } else {
+                        break
+                      }
+                      if (whileCount++ > 100) {
+                        break
+                      }
+                    }
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    }else {
+        (function(doc, win) {
+            var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function() {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            if (clientWidth >= 1500) {
+            docEl.style.fontSize = '100px';
+            } else {
+            docEl.style.fontSize = 100 * (clientWidth / 1500) + 'px';
+            var div = document.createElement('div');
+            div.style.width = '1.4rem';
+            div.style.height = '0';
+            document.body.appendChild(div);
+            var ideal = 140 * clientWidth / 1500;
+            var rmd = (div.clientWidth / ideal);
+            if (rmd > 1.2 || rmd < 0.8) {
+            docEl.style.fontSize = 100 * (clientWidth / 1500) / rmd + 'px';
+            }
+            document.body.removeChild(div);
+            };
+            };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+            })(document, window);
+    }
+</script>
+<script>
+    window.onload=function(){
+        var url=window.location.search;
+        let index = url.indexOf('?')
+        let obj = {}
+        if (index !== -1) {
+            let str = url.substr(1)
+            let arr = str.split('&')
+            for (let i = 0; i < arr.length; i++) {
+                obj[arr[i].split('=')[0]] = arr[i].split('=')[1]
+            }
+        }
+        var ele=document.getElementById('con_first');
+        ele.style.background='url(https://h5.cyol.com/special/daxuexi/'+obj['id']+'/images/end.jpg) 0% 0% / 100% no-repeat rgb(132, 143, 163)';
+        console.log(ele.style.background);
+    }
+</script>
+<script>
+    $(function(){
+        var size=$(document).width()/1500;
+        var screen_height=936*size*2;
+        var height=$(document).height();
+        $('#con_first').css('height',$(document).height());
+	})
+</script>
+
+</head>
+<body style='margin: 0px; font-family: "微软雅黑"; background-color:#848fa4;'>
+    <div id='con_first' style='width: 100%;  background: url(http://cdnsite.fjg360.cn/18da/back2.png?v=4) no-repeat; background-size: 100%; background-color: #848fa3; overflow: hidden; position: absolute;'></div>
+</body> 
